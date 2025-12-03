@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+ <meta charset="UTF-8">
+ <title>Solar Shop | خانه</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<style>
+/* استایل کارت‌ها */
+.card {
+  width: 240px;
+  background: #333;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* تصاویر کارت */
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* افکت تکان و بزرگ شدن */
+.card:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+/* هاله سفید */
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(255,255,255,0.4), rgba(255,255,255,0));
+  transition: bottom 0.4s ease;
+  
+}
+
+/* حرکت هاله از پایین به بالا */
+.card:hover::after {
+  bottom: 0;
+}
+.card {
+      background: #5a5a5a;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #0dd370;
+      transition: transform 0.3s;
+    }
+</style>
+
+<div class="box"></div>
+
+<body>
+<header>Solar Shop</header>
+<nav>
+ <a href="index.html">خانه</a>
+ <a href="products.html">محصولات</a>
+ <a href="minecraft_server.html">سرور ماینکرافت</a>
+ <a href="contact.html">ارتباط با ما</a>
+</nav>
+
+<section class="hero">
+ <h1>به سولار شاپ خوش آمدید</h1>
+ <p>فروش اکانت پریمیوم ماینکرافت، ساخت تامنیل گیمینگ و خدمات دیجیتال</p>
+ <a class="btn" href="products.html">مشاهده محصولات</a>
+</section>
+
+<div class="container">
+ <h2>محصولات ویژه</h2>
+
+ <div class="card">
+   <img src="https://i.postimg.cc/HL04hbZ5/download.jpg" />
+   <h3>اکانت پریمیوم ماینکرافت</h3>
+   <p>تحویل فوری – تضمینی</p>
+ </div>
+
+ 
+
+    <div class="slider">
+        <div class="slides">
+
+            <!-- عکس‌ها را اینجا بگذار -->
+            <img src="https://i.postimg.cc/nr4qdP4d/210937-temp.jpg" class="slide active">
+            <img src="https://i.postimg.cc/YqNx8hRR/210980-temp.jpg" class="slide">
+            <img src="https://i.postimg.cc/TPBmT6QS/IMG-20250403-194453-769-(1).jpg" class="slide">
+
+        </div>
+
+        <!-- دکمه‌های بعد/قبل -->
+        <button class="prev">❯</button>
+        <button class="next">❮</button>
+    </div>
+
+    <h3>تامنیل گیمینگ</h3>
+    <p>کیفیت بالا – استایل حرفه‌ای</p>
+
+</div>
+
+</div>
+
+ 
+
+<div class="footer">Solar Shop © 2025</div>
+</body>
+<script>
+const nextButtons = document.querySelectorAll(".next");
+const prevButtons = document.querySelectorAll(".prev");
+
+nextButtons.forEach(btn => {
+  btn.addEventListener("click", function() {
+    let slider = btn.parentElement;
+    let slides = slider.querySelectorAll(".slide");
+    let index = [...slides].findIndex(s => s.classList.contains("active"));
+
+    slides[index].classList.remove("active");
+    slides[(index + 1) % slides.length].classList.add("active");
+  });
+});
+
+prevButtons.forEach(btn => {
+  btn.addEventListener("click", function() {
+    let slider = btn.parentElement;
+    let slides = slider.querySelectorAll(".slide");
+    let index = [...slides].findIndex(s => s.classList.contains("active"));
+
+    slides[index].classList.remove("active");
+    slides[(index - 1 + slides.length) % slides.length].classList.add("active");
+  });
+});
+</script>
+
+</html>
